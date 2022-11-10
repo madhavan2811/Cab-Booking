@@ -1,0 +1,62 @@
+<div class="main-container" >
+     
+        <header class="header">
+           
+            <nav class="navbar">
+                <a href="/home">Home</a>
+                <a href="/service">Buy/sell</a>
+                <a href="/cost">Services</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+            </nav>
+        </header>
+      
+    </div>
+<h3 style="color:gold ;">{{viewTitle}}</h3>
+
+<form action="/employee" method="POST" autocomplete="off" style=";padding:15px">
+    <input type="hidden" name="_id" value="{{employee._id}}">
+    <div class="form-group" style="text-align:left ;">
+        <label>Full Name</label>
+        <input type="text" class="form-control" name="fullName" placeholder="Full Name" value="{{employee.fullName}}">
+        <div class="text-danger">
+            {{employee.fullNameError}}</div>
+    </div>
+    <div class="form-group" style="text-align:left ;">
+        <label>Email</label>
+        <input type="text" class="form-control" name="email" placeholder="Email" value="{{employee.email}}">
+        <div class="text-danger">
+            {{employee.emailError}}</div>
+    </div>
+     <div class="form-group" style="text-align:left ;">
+        <label>Mobile</label>
+        <input type="text" class="form-control" name="mobile" placeholder="Mobile" value="{{employee.mobile}}">
+
+    <div class="form-row">
+       
+        <div class="form-group col-md-6" style="text-align:left ;">
+            <label>From</label>
+            <input type="text" class="form-control" name="from" placeholder="From" value="{{employee.from}}">
+        </div>
+        <div class="form-group col-md-6" style="text-align:left ;">
+            <label>To</label>
+            <input type="text" class="form-control" name="to" placeholder="To" value="{{employee.to}}">
+        </div>
+    </div>
+    <div class="form-group" style="text-align:left ;">
+        <label for="type1">Type</label>
+        
+         <select name="type1" id="type1"  style="width : 100%;height : 40px; border : #ffffff; background-color :  #f0f8ff; text-align : left; color: #8c8c8c; ">                          
+                            <option value="silver">Silver</option>
+                            <option value="gold">Gold</option>
+                            <option value="premium">Premium</option>
+            </select>
+
+    </div>
+    <div class="form-group" style="text-align:left ;">
+        <button type="submit" class="btn btn-info" style="color: black;background-color:gold;border-color:gold"><i class="fa fa-car" ></i> Submit</button>
+            </div>
+</form>
+             
+
+

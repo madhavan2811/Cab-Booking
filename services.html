@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Car Hub</title>
+    </head>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style type="text/css"> </style>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="style1.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    --yellow:#f9d806;
+    --light-yellow:#ffee80;
+    --black:#130f40;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:.1rem solid rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+section{
+    padding:2rem 9%;
+}
+
+.heading{
+    padding-bottom: 2rem;
+    text-align: center;
+    font-size: 4.5rem;
+    color:var(--black);
+}
+
+.heading span{
+    position: relative;
+    z-index: 0;
+}
+
+.heading span::before{
+    content: '';
+    position: absolute;
+    bottom:1rem; left:0;
+    height: 100%;
+    width: 100%;
+    background: var(--light-yellow);
+    z-index: -1;
+    clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:.8rem 3rem;
+    background:var(--light-yellow);
+    color:var(--black);
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.btn:hover{
+    background:var(--yellow);
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:0; left:0; right:0;
+    padding:3rem 9%;
+    z-index: 1000;
+    background: #fff;
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    color:var(--black);
+    font-weight: bold;
+}
+
+.header .logo span{
+    color:var(--yellow);
+}
+
+.header .navbar a{
+    margin:0 1rem;
+    font-size: 1.7rem;
+    color:var(--black);
+}
+
+.header .navbar a:hover{
+    color:var(--yellow);
+}
+
+#login-btn .btn{
+    margin-top: 0;
+}
+
+#login-btn i{
+    display: none;
+    font-size: 2.5rem;
+    color:var(--light-color);
+}
+
+.header.active{
+    padding:2rem 9%;
+    box-shadow: var(--box-shadow);
+}
+
+#menu-btn{
+    font-size: 2.5rem;
+    color:var(--light-color);
+    display: none;
+}
+
+
+
+.footer{
+    background: var(--light-yellow);
+    padding-bottom: 8rem;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    padding:1rem 0;
+    color:var(--black);
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.4rem;
+    padding:1rem 0;
+    color:var(--light-color);
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color:var(--black);
+}
+
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+}
+
+.footer .credit{
+    text-align: center;
+    padding:1.5rem;
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    border-top: var(--border);
+    font-size: 2rem;
+    color:var(--black);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding:2rem;
+    }
+
+    .header.active{
+        padding:2rem;
+    }
+
+    section{
+        padding:2rem;
+    }
+
+}
+
+@media (max-width:768px){
+
+    #menu-btn{
+        display: block;
+    }
+
+    #menu-btn.fa-times{
+        transform:rotate(180deg);
+    }
+
+    #login-btn .btn{
+        display: none;
+    }
+
+    #login-btn i{
+        display: block;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:99%; left:0; right:0;
+        background: #fff;
+        border-top: var(--border);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .header .navbar a{
+        margin:2rem;
+        display: block;
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+
+    .heading{
+        font-size: 3rem;
+    }
+
+}
+	</style>
+<body >
+
+    
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+    
+        <a href="#" class="logo"> <span>Cab</span>Hub </a>
+    
+        <nav class="navbar">
+            <a href="/home">Home</a>
+            <a href="/service">Buy/sell</a>
+            <a href="/cost">Services</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    
+       
+    </header>   
+
+<br>
+<br>
+<br>
+<br>    
+
+
+<div ng-app="MyApp" ng-controller="MyController" style="margin: 50px; padding-left: 550px; padding-top: 15px; font-size: 20px;">
+    <br>
+    <br>
+    <h4 >Check out the cars available on your city</h4>
+    <input type=text ng-model="search.carname" placeholder="Search for cars">
+    <input type=text ng-model="search.price" placeholder="price">
+    
+
+    <br>
+    <br>
+    <table class="table" >
+        <thead class="thead-dark">
+          <tr style="background:lightblue; color:black">
+            <th scope="col">  S.No  </th>
+            <th scope="col">  Car Name  </th>
+            <th scope="col">  Price  </th>
+            <th scope="col">  Model  </th>
+            <th scope="col"> City  </th>
+          </tr>
+        </thead>
+          <tr ng-repeat="x in jobs |  filter : search " style="color: black">
+            <td>{{$index + 1}}</td>
+            <td>{{x.carname}}</td>
+            <td>{{x.price}}</td>
+            <td>{{x.model}}</td>
+            <td>{{x.city}}</td>
+          </tr>
+      </table>
+      
+      
+</div>
+<script>
+    var app = angular.module('MyApp', []);
+    app.controller('MyController', function ($scope){
+        $scope.jobs = [
+            {carname: "Mahindra XUV 7oo",price: "18.50 Lakh" ,model: "2020", city: "Chennai"},
+            {carname: "Kia Seltos",price: "10.40 Lakh" ,model: "2021", city: "Coimbatore"},
+            {carname: "Toyota Innova Crysta",price: "17.20 Lakh" ,model: "2022", city: "Chennai"},
+            {carname: "Maruti Suzuki Ertiga",price: "8.40 Lakh" ,model: "2021", city: "Madurai"},
+            {carname: "Tata Nexon",price: "7.60 Lakh" ,model: "2022", city: "Trichy"},
+            {carname: "Hyundai Venue",price: "10.40 Lakh" ,model: "2019", city: "Coimbatore"},
+            {carname: "Tata Altroz",price: "6.30 Lakh" ,model: "2020", city: "Trichy"},
+            {carname: "Nissan Magnite",price: "5.60 Lakh" ,model: "2018", city: "Madurai"},
+            {carname: "Hyundai Verna",price: "7.50 Lakh" ,model: "2020", city: "Coimbatore"},
+            {carname: "Mahindra XUV 3oo",price: "14.00 Lakh" ,model: "2021", city: "Chennai"},
+            {carname: "Tata Harrier",price: "14.60 Lakh" ,model: "2022", city: "Coimbatore"},
+            {carname: "MG Hector",price: "12.30 Lakh" ,model: "2020", city: "Madurai"},
+            {carname: "Mahindra Bolero",price: "9.30 Lakh" ,model: "2018", city: "Trichy"},
+            {carname: "Audi A9",price: "39.90 Lakh" ,model: "2020", city: "Chennai"},
+            {carname: "Nexon EV",price: "14.10 Lakh" ,model: "2022", city: "Madurai"},
+            {carname: "BMW X5",price: "50.70 Lakh" ,model: "2022", city: "Coimbatore"},
+            
+            
+        ];
+    });
+  </script>
+
+
+<section class="footer" id="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>our branches</h3>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Chennai </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Coimbatore </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Madurai </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Trichy </a>
+           
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> vehicles </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> services </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> reviews </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> contact </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+            <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> subhasankar@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Madurai, india - 625015 </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+   
+
+</section>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+
+</body>
+
+
+</html>

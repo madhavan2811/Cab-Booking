@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script src="valid.js"></script>
+
+    
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    </head>
+<style>
+h{
+	font-size:30px;
+	display:inline-block;
+	align-content: flex-start;
+}
+p{
+	font-weight: bold;
+}
+
+body{
+	background-image:url(image/background.png);
+	font-family: 'Source Sans Pro', sans-serif;
+	color: black;
+	font-weight: 500;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 950px;
+}
+.title{
+	text-align:center;
+	color: black;
+	font-weight:bold;
+	
+}
+.page{
+	position:absolute;
+	top:10px;
+	right:1px;
+}
+.page{
+	font-family:"Gill Sans", sans-serif;
+	background-color:white;
+	padding:10px 20px;
+	margin:10px 30px;
+	position:relative;
+	top:250px;
+	right:50%;
+	left:25%;
+	bottom:1px;
+	height:500px;
+    width: 40%;
+		
+}
+.circle{
+	font-size:35px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-weight:bold;
+	border:7px solid gold;
+	border-radius:50%;
+	padding:20px;
+	position:absolute;
+	right:50%;
+	
+	top:50px;
+}
+.error{
+	color: red;
+}
+</style>
+<script>
+function validate() {
+    
+var fname = document.forms["RegForm"]["FName"];
+var lname = document.forms["RegForm"]["LName"];
+var email = document.forms["RegForm"]["EMail"];
+var phone = document.forms["RegForm"]["phone"];
+var lname = document.forms["RegForm"]["LName"];
+var dob = document.forms["RegForm"]["DOB"];
+var gender=document.forms["RegForm"]["gender"];
+var acc = document.forms["RegForm"]["account"];
+
+
+
+if (fname.value == "") {
+    window.alert("Please enter your First name.");
+    fname.focus();
+    return false;
+}
+if (lname.value == "") {
+    window.alert("Please enter your Last name");
+    lname.focus();
+    return false;
+}
+
+if (dob.value == "") {
+    window.alert("Please enter your Date Of Birth");
+    dob.focus();
+    return false;
+}
+
+gen=false;
+for(var i=0;i<gender.length;i++){
+    if(gender[i].checked){
+        gen=true;
+        break;
+    }
+}
+
+if(gen==false){
+    alert("Please enter your gender");
+    return false;
+
+}
+
+
+if (email.value == "") {
+    window.alert(
+      "Please enter a valid e-mail address.");
+    email.focus();
+    return false;
+}
+
+if (phone.value == "") {
+    window.alert(
+      "Please enter your phone number");
+    phone.focus();
+    return false;
+}
+act=false;
+for(var i=0;i<acc.length;i++){
+    if(acc[i].checked){
+        act=true;
+        break;
+    }
+}
+if(act==false){
+    alert("Please enter your account type");
+    return false;
+}
+
+return true;
+}
+</script>
+<body>
+
+<div class= "page">
+<h class="title">Registration</h>
+<br>
+<br>
+   <form name="RegForm" action="welcome.php" onsubmit="return validate()" method="post">
+<p>First Name: <input type="text"
+                size="65" name="FName" /></p>
+<br />
+<p>Last Name: <input type="text"
+                size="65" name="LName" /></p>
+<br />
+<p>Date Of Birth: <input type="text"
+                    size="65" name="DOB" /></p>
+
+<p>E-mail ID: <input type="text"
+                    size="65" name="EMail" /></p>
+<br />
+<p>Phone number: <input type="text"
+                    size="65" name="phone" /></p>
+<br />
+
+  
+
+
+<p>
+    <input type="submit"
+        value="Submit" name="Submit" />
+    <input type="reset"
+        value="Reset" name="Reset" />
+</p>
+</form>
+    </div>  
+
+
+<div class="circle" >
+<p style="color: whitesmoke;">Cab Hub</p>
+</div>  
+
+
+</body>
+</html>
